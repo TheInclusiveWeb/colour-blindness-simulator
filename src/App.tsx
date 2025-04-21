@@ -13,7 +13,7 @@ export default function App() {
   const VISION_DISORDER_OPTIONS: SelectOption[] = [
     {
       value: 'None',
-      label: 'Full colour vision'
+      label: 'Full color vision'
     },
     {
       value: 'Protanomaly',
@@ -32,7 +32,7 @@ export default function App() {
   const VISION_DISORDER_STRENGTHS = [
     {
       value: '0.0',
-      label: '0% (full colour vision)'
+      label: '0% (full color vision)'
     },
     {
       value: '0.1',
@@ -72,7 +72,7 @@ export default function App() {
     },
     {
       value: '1.0',
-      label: '100% (No colour visible)'
+      label: '100% (No color visible)'
     },
   ]
 
@@ -100,16 +100,16 @@ export default function App() {
 
   return (
     <div className="app">
-      {/* Sidebar component with url, filter for colour vision disorder type and strength */}
+      {/* Sidebar component with url, filter for color vision disorder type and strength */}
       <Sidebar
         defaultUrl=''
         onUrlChange={handleUrlChange}
       >
-        {/* Colour blindness type */}
-        <Select onChange={(value: VisionDisorderOptions) => setVariant(value)} options={VISION_DISORDER_OPTIONS} value={variant} label='type of colour deficiency' />
+        {/* Color blindness type */}
+        <Select onChange={(value: VisionDisorderOptions) => setVariant(value)} options={VISION_DISORDER_OPTIONS} value={variant} label='type of color deficiency' />
 
-        {/* Colour blindness severity (0-100) */}
-        <Select onChange={(value: number) => setStrength(value)} options={VISION_DISORDER_STRENGTHS} value={`${strength}`} label='Severity of the colour deficiency' />
+        {/* Color blindness severity (0-100) */}
+        <Select onChange={(value: number) => setStrength(value)} options={VISION_DISORDER_STRENGTHS} value={`${strength}`} label='Severity of the color deficiency' />
 
         {/* Confirmation button */}
         <Button

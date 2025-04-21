@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   }
 
   return (
-    <aside className={styles.sidebar} aria-label="Colour blindness simulator sidebar">
+    <aside className={styles.sidebar} aria-label="Color blindness simulator sidebar">
       <header className={styles.header}>
         <h2 id="sidebar-title" className={styles.title}>
           Settings
