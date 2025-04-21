@@ -104,6 +104,7 @@ export default function App() {
       <Sidebar
         defaultUrl=''
         onUrlChange={handleUrlChange}
+        onStartSimulation={startSimulation}
       >
         {/* Color blindness type */}
         <Select onChange={(value: VisionDisorderOptions) => setVariant(value)} options={VISION_DISORDER_OPTIONS} value={variant} label='type of color deficiency' />

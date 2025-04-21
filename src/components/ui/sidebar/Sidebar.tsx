@@ -5,20 +5,20 @@ import styles from "./sidebar.module.css"
 interface SidebarProps extends React.PropsWithChildren {
   defaultUrl?: string
   onUrlChange?: (url: string) => void
+  onStartSimulation?: () => void
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
   defaultUrl = "",
   onUrlChange,
+  onStartSimulation,
   children
 }) => {
   const [url, setUrl] = useState(defaultUrl)
 
   const handleUrlChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value)
-    if (onUrlChange) {
-      onUrlChange(e.target.value)
-    }
+    onUrlChange?.(e.target.value)
   }
 
   return (
@@ -42,6 +42,9 @@ const Sidebar: React.FC<SidebarProps> = ({
               placeholder="https://example.com"
               value={url}
               onChange={handleUrlChange}
+              onKeyDown={(e) => {
+                if (e.code === 'Enter') onStartSimulation?.()
+              }}
               aria-labelledby="url-section"
             />
           </div>
