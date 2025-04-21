@@ -1,0 +1,180 @@
+/* Select Container */
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  width: 100%;
+  position: relative;
+}
+
+/* Select Label */
+.selectLabel {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--select-text);
+  transition: color var(--select-transition);
+}
+
+.requiredIndicator {
+  color: var(--select-error-color);
+}
+
+/* Select Main Element */
+.select {
+  position: relative;
+  width: 100%;
+}
+
+/* Select Trigger Button */
+.selectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  background-color: var(--select-background);
+  border: 1px solid var(--select-border);
+  border-radius: var(--select-border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  color: var(--select-text);
+  transition:
+    background-color var(--select-transition),
+    border-color var(--select-transition),
+    color var(--select-transition),
+    box-shadow var(--select-transition);
+}
+
+.selectTrigger:hover:not([aria-disabled="true"]) {
+  border-color: var(--select-focus);
+}
+
+.selectTrigger:focus {
+  outline: none;
+  border-color: var(--select-focus);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Select Value */
+.selectValue {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  transition: color var(--select-transition);
+}
+
+.selectTrigger[data-value=""] .selectValue {
+  color: var(--select-placeholder);
+}
+
+.selectIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  transition: transform var(--select-transition);
+  
+}
+
+.selectIcon svg {
+  transition: transform var(--select-transition), stroke var(--select-transition);
+}
+
+.selectIcon .iconOpen {
+  transform: rotate(180deg);
+}
+
+/* Select Dropdown */
+.selectDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--select-background);
+  border: 1px solid var(--select-border);
+  border-radius: var(--select-border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  transition: background-color var(--select-transition), border-color var(--select-transition);
+}
+
+/* Select Option */
+.selectOption {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color var(--select-transition), color var(--select-transition);
+}
+
+.selectOption:hover:not(.disabled) {
+  background-color: var(--select-hover-background);
+}
+
+.selectOption.selected {
+  background-color: var(--select-option-selected);
+  font-weight: 500;
+}
+
+.selectOption.focused {
+  background-color: var(--select-option-focused);
+}
+
+.selectOption.disabled {
+  color: var(--select-disabled-text);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Disabled State */
+.select.disabled .selectTrigger {
+  background-color: var(--select-disabled-background);
+  color: var(--select-disabled-text);
+  cursor: not-allowed;
+  border-color: var(--select-border);
+}
+
+/* Error State */
+.select.error .selectTrigger {
+  border-color: var(--select-error-color);
+}
+
+.selectError {
+  color: var(--select-error-color);
+  font-size: 12px;
+  margin-top: 4px;
+  transition: color var(--select-transition);
+}
+
+/* Focus Visible Polyfill */
+.selectTrigger:focus-visible {
+  outline: 2px solid var(--select-focus);
+  outline-offset: 1px;
+}
+
+/* Scrollbar Styling */
+.selectDropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selectDropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.selectDropdown::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.selectDropdown::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
