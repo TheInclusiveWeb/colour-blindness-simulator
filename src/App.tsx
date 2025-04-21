@@ -109,7 +109,9 @@ export default function App() {
         <Select onChange={(value: VisionDisorderOptions) => setVariant(value)} options={VISION_DISORDER_OPTIONS} value={variant} label='type of color deficiency' />
 
         {/* Color blindness severity (0-100) */}
-        <Select onChange={(value: number) => setStrength(value)} options={VISION_DISORDER_STRENGTHS} value={`${strength}`} label='Severity of the color deficiency' />
+        {variant !== 'None' && (
+          <Select onChange={(value: number) => setStrength(value)} options={VISION_DISORDER_STRENGTHS} value={`${strength}`} label='Severity of the color deficiency' />
+        )}
 
         {/* Confirmation button */}
         <Button
