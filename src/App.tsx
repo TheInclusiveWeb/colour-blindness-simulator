@@ -6,6 +6,7 @@ import Select, { SelectOption } from './components/ui/select/Select';
 import Sun from './assets/sun.svg?react';
 import Moon from './assets/moon.svg?react';
 import Button from './components/ui/button/Button';
+import { UrlInput } from './components/ui/urlInput/UrlInput';
 
 type VisionDisorderOptions = VisionDisorder | 'None'
 
@@ -91,7 +92,7 @@ export default function App() {
 
   const filter = useMemo(() => `${variant.toLowerCase()}-${(strength * 10).toFixed(0)}`, [variant, strength])
   const handleUrlChange = (val: string) => {
-    setUrl(val);
+    setUrl(`https://${val}`);
     if (val.length === 0) setFinalUrl('')
   }
   const startSimulation = () => setFinalUrl(url)
@@ -101,11 +102,10 @@ export default function App() {
   return (
     <div className="app">
       {/* Sidebar component with url, filter for color vision disorder type and strength */}
-      <Sidebar
-        defaultUrl=''
-        onUrlChange={handleUrlChange}
-        onStartSimulation={startSimulation}
-      >
+      <Sidebar>
+        {/* Url input */}
+        <UrlInput value={url} onChange={handleUrlChange} onEnter={startSimulation} ariaLabelledBy="url-section" />
+
         {/* Color blindness type */}
         <Select onChange={(value: VisionDisorderOptions) => setVariant(value)} options={VISION_DISORDER_OPTIONS} value={variant} label='type of color deficiency' />
 

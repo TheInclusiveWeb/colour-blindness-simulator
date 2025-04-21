@@ -36,60 +36,6 @@
   padding: 16px;
 }
 
-.section {
-  margin-bottom: 24px;
-}
-
-.sectionTitle {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 12px 0;
-  color: var(--section-title-color);
-  transition: color 0.3s ease;
-}
-
-.formGroup {
-  margin-bottom: 16px;
-}
-
-.label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: var(--muted-text-color);
-  transition: color 0.3s ease;
-}
-
-.input {
-  width: 100%;
-  padding: 8px 12px;
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text-color);
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  background-clip: padding-box;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.input:focus {
-  color: var(--text-color);
-  background-color: var(--input-bg);
-  border-color: var(--input-focus-border);
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
-}
-
-.selectWrapper {
-  width: 100%;
-}
-
 /* Media query for responsive design */
 @media (max-width: 768px) {
   .sidebar {
