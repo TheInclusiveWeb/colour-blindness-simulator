@@ -10,8 +10,8 @@
   /* Inputs */
   --input-bg: #fff;
   --input-border: #ced4da;
-  --input-focus-border: #80bdff;
-  --input-focus-shadow: rgba(0, 123, 255, 0.25);
+  --input-focus-border: #59736A;
+  --input-focus-shadow: #59736A20;
 
   /* Sections */
   --section-title-color: #495057;
@@ -106,4 +106,9 @@ button {
 .simulation-container {
   width: calc(100dvw - 280px);
   margin-left: 280px;
+}
+
+.filter-view-container {
+  display: grid;
+  place-items: center;
 }

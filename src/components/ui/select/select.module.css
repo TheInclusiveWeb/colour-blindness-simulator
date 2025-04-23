@@ -55,7 +55,7 @@
 .selectTrigger:focus {
   outline: none;
   border-color: var(--select-focus);
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  box-shadow: 0 0 0 2px #59736A33;
 }
 
 /* Select Value */

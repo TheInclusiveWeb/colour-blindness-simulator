@@ -7,6 +7,8 @@ import Sun from './assets/sun.svg?react';
 import Moon from './assets/moon.svg?react';
 import Button from './components/ui/button/Button';
 import { UrlInput } from './components/ui/urlInput/UrlInput';
+import useDeviceType from './hooks/useDeviceType';
+import DeviceToggle from './components/ui/deviceToggle/DeviceToggle';
 
 type VisionDisorderOptions = VisionDisorder | 'None'
 
@@ -82,6 +84,8 @@ export default function App() {
   const [variant, setVariant] = useState<VisionDisorderOptions>('None')
   const [strength, setStrength] = useState<number>(0)
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const deviceSize = useDeviceType();
+  const [deviceType, setDeviceType] = useState<'desktop' | 'mobile'>(deviceSize)
 
   const toggleTheme = () => setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
 
@@ -113,6 +117,9 @@ export default function App() {
         {variant !== 'None' && (
           <Select onChange={(value: number) => setStrength(value)} options={VISION_DISORDER_STRENGTHS} value={`${strength}`} label='Severity of the color deficiency' />
         )}
+
+        {/* Device type toggle */}
+        <DeviceToggle value={deviceType} onChange={setDeviceType} />
 
         {/* Confirmation button */}
         <Button
@@ -147,10 +154,10 @@ export default function App() {
 
       <section className='simulation-container'>
         {finalUrl && (
-          <>
-            <IframeViewer key={`${finalUrl}-${filter}`} url={finalUrl} filter={filter} />
+          <div className='filter-view-container'>
+            <IframeViewer key={`${finalUrl}-${filter}`} url={finalUrl} filter={filter} deviceType={deviceType} />
             <FilterSVG />
-          </>
+          </div>
         )}
       </section>
     </div>

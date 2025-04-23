@@ -1,0 +1,34 @@
+.toggleContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.toggleButton {
+  background: var(--input-border);
+  border: 2px solid transparent;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background-color 0.2s;
+  width: 100%;
+  color: var(--text-color);
+}
+
+.toggleButton:hover {
+  border-color: #ccc;
+}
+
+.toggleButton:focus {
+  outline: 2px solid var(--);
+  outline-offset: 2px;
+}
+
+.active {
+  border-color: var(--accent-color);
+  background-color: var(--bg-color);
+}
